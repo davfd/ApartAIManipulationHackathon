@@ -103,8 +103,8 @@ Previous alignment solutions destroyed capability. We prove that's unnecessary:
 ### Quick Test (5 minutes, $5)
 
 ```bash
-git clone https://github.com/davfd/manipulation-benchmark.git
-cd manipulation-benchmark
+git clone https://github.com/davfd/ApartAIManipulationHackathon.git
+cd ApartAIManipulationHackathon
 pip install -r requirements.txt
 export ANTHROPIC_API_KEY=your_key
 python capability_benchmarks/run_all_dynamic.py --quick-test

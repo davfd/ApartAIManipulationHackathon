@@ -5,7 +5,7 @@
 **Authors:** Jonathan & David Fortin-Dominguez
 **Date:** January 2026
 **Submission:** Apart Research AI Manipulation Hackathon
-**Repository:** https://github.com/davfd/manipulation-benchmark
+**Repository:** https://github.com/davfd/ApartAIManipulationHackathon
 **Version:** 1.0.3
 
 ---
@@ -597,7 +597,7 @@ The question is no longer "Can we align AI without breaking it?" The answer is y
 ## Appendix A: Repository Structure
 
 ```
-manipulation-benchmark/
+ApartAIManipulationHackathon/
 ├── README.md                       # Executive summary + quick start
 ├── PROJECT_REPORT.md               # This document (hackathon submission)
 ├── METHODOLOGY.md                  # Full technical methodology
@@ -968,7 +968,7 @@ class ConditionallyAlignedLLM(OpenAI):
 ### F.3 Step-by-Step Replication
 
 **Week 1**: Setup + Capability Validation
-1. Clone repo: `git clone https://github.com/davfd/manipulation-benchmark`
+1. Clone repo: `git clone https://github.com/davfd/ApartAIManipulationHackathon`
 2. Install dependencies: `pip install -r requirements.txt`
 3. Run capability smoke test: `python capability_evaluations/run_all_dynamic.py --limit 100`
 4. Validate tier distribution matches paper (~91% T0)
