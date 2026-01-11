@@ -20,7 +20,7 @@ export OPENAI_API_KEY=your_key_here  # optional
 export GOOGLE_API_KEY=your_key_here  # optional
 
 # Run quick test (100 queries, ~$5)
-python code/capability_routing/run_all_dynamic.py --quick-test
+python capability_benchmarks/run_all_dynamic.py --quick-test
 
 # Expected output:
 # - Safety: 0% harmful (across all test scenarios)
@@ -36,10 +36,10 @@ More comprehensive validation without full cost:
 
 ```bash
 # Capability evaluation (1,000 questions instead of 15,809)
-python code/capability_routing/run_all_dynamic.py --smoke-test
+python capability_benchmarks/run_all_dynamic.py --smoke-test
 
 # Safety evaluation (500 scenarios instead of 8,632)
-python code/anthropic_agentic/generate_prompts_with_seed.py --budget-mode
+python anthropic_agentic/generate_prompts_with_seed.py --budget-mode
 
 # Estimated cost: ~$200
 # Estimated time: 2-3 hours
@@ -83,8 +83,8 @@ export GOOGLE_API_KEY=your_google_key
 
 ```bash
 # Generate test scenarios with seed configurations
-python code/anthropic_agentic/generate_prompts_with_seed.py \
-  --config code/anthropic_agentic/configs/seed_on.yaml \
+python anthropic_agentic/generate_prompts_with_seed.py \
+  --config anthropic_agentic/configs/seed_on.yaml \
   --output results/anthropic_agentic/
 
 # Cost: ~$865
@@ -96,7 +96,7 @@ python code/anthropic_agentic/generate_prompts_with_seed.py \
 
 ```bash
 # Test dynamic routing on 15,809 questions
-python code/capability_routing/run_all_dynamic.py \
+python capability_benchmarks/run_all_dynamic.py \
   --model gemini-2.5-flash \
   --output results/capability_dynamic/
 
@@ -109,7 +109,7 @@ python code/capability_routing/run_all_dynamic.py \
 
 ```bash
 # Test deception detection
-python code/liar_detection/detect_liar.py \
+python liar_detection/detect_liar.py \
   --model gpt-4-turbo \
   --output results/liar_detection/
 
@@ -180,17 +180,17 @@ If you hit rate limits:
 
 ```bash
 # Reduce parallelism
-python code/capability_routing/run_all_dynamic.py --workers 1
+python capability_benchmarks/run_all_dynamic.py --workers 1
 
 # Or add delays
-python code/capability_routing/run_all_dynamic.py --delay 1.0
+python capability_benchmarks/run_all_dynamic.py --delay 1.0
 ```
 
 ### Out of Memory
 
 ```bash
 # Process in batches
-python code/capability_routing/run_all_dynamic.py --batch-size 100
+python capability_benchmarks/run_all_dynamic.py --batch-size 100
 ```
 
 ### Missing Dependencies
