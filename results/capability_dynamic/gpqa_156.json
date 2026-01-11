@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_156",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Which of the following four-body processes cannot occur at a single SM vertex?",
+  "response": "Let's analyze each option in the context of the Standard Model (SM) and its vertices. A \"single SM vertex\" implies an interaction mediated by a single fundamental force carrier (gluon, photon, W/Z boson, Higgs boson) or a direct interaction described by a single term in the SM Lagrangian.\n\n**A) qq->qq (Quark-quark scattering)**\nThis process can occur via a single gluon exchange (strong force). For example, a quark emits a gluon",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 0,
+  "correct_letter": "A",
+  "is_correct": true,
+  "timestamp": "2026-01-11T15:01:05.790977"
+}

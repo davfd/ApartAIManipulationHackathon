@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_142",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Which of the following products is formed when 3-iodo-5-methyl-2-nitrophenyl 4-nitrobenzenesulfonate is heated with NaOH.",
+  "response": "",
+  "extracted_answer": null,
+  "extracted_letter": null,
+  "correct_answer": 2,
+  "correct_letter": "C",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:04.318567"
+}

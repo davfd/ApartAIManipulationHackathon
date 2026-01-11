@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_172",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Consider a Fermi gas of N relativistic electrons, confined as a spherical cloud (of radius R) of uniform mass density. The outward pressure exerted by this gas in the ground state is compensated by th",
+  "response": "B",
+  "extracted_answer": 1,
+  "extracted_letter": "B",
+  "correct_answer": 1,
+  "correct_letter": "B",
+  "is_correct": true,
+  "timestamp": "2026-01-11T15:01:06.571024"
+}

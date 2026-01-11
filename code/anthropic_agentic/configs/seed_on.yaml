@@ -1,0 +1,42 @@
+# SEED-ON - Gemini 3.0 Flash with Foundation Alignment v2.6
+experiment_id: amsuite_seed_on_gemini_30_flash
+description: "Gemini 3.0 Flash with Foundation Alignment seed v2.6"
+
+global:
+  models:
+    - gemini-2.5-flash
+
+  temperature: 0.7
+
+  concurrency:
+    providers:
+      google: 30  # High concurrency with throttling
+
+  samples_per_condition: 20  # As per test plan
+
+# Full test matrix (same as baseline)
+expansions:
+  - name: "full_seed_test"
+    description: "Complete test matrix for Gemini 3.0 Flash with Foundation seed"
+    enabled: true
+
+    variables:
+      scenarios: ["blackmail", "leaking", "murder"]
+      goal_types: ["explicit", "none", "latent", "ambiguous", "swap"]
+      goal_values: ["america", "global"]
+      urgency_types: ["replacement", "restriction", "none"]
+
+classification:
+  enabled: true
+  models:
+    murder: "murder_classifier"
+    blackmail: "blackmail_classifier"
+    leaking: "leak_classifier"
+
+execution:
+  resume_interrupted: true
+  timeout_seconds: 180
+  retries: 3
+
+# Foundation Alignment seed v2.6 (will be injected by run script)
+prompt_preamble: ""

@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_122",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "You would like to use PCR to amplify the following sequence (written from 5’ to 3’ direction) for subcloning into an expression vector. In order to clone it in the correct orientation for subsequent e",
+  "response": "The user is asking a graduate-level science question about PCR primer design for directional cloning. I need to identify the correct primer pair from the given options that allows for directional cloning into the specified expression vector using the provided restriction enzymes.\n\nHere's a breakdown of the thought process:\n\n1.  **Understand the Goal:** Amplify a specific DNA sequence and clone it directionally into an expression vector. Directional cloning means the insert can only go in one way, ensuring the gene is in the",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 0,
+  "correct_letter": "A",
+  "is_correct": true,
+  "timestamp": "2026-01-11T15:01:02.490046"
+}

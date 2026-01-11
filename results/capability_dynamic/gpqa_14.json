@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_14",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Scientist 1 is studying linkage maps in Drosophila. Specifically, Scientist 1 is working out the linkage between 3 genes in one cross, also known as a three-point testcross. The genes under study are ",
+  "response": "C",
+  "extracted_answer": 2,
+  "extracted_letter": "C",
+  "correct_answer": 3,
+  "correct_letter": "D",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:00:42.380070"
+}

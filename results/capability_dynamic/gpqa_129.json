@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_129",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Your colleague has devised a new quantum field theory on four-dimensional spacetime, and is exploring the regularization of certain higher-order loop diagrams in that theory. On their desk you spy a s",
+  "response": "The problem asks us to determine the number of loops in a Feynman diagram given a \"size estimate\" expression. This expression contains various constants and ratios, and we need to relate it to the typical structure of loop diagrams in quantum field theory.\n\nLet's analyze the given expression:\n`alpha^3 * g^2 sqrt(2) * 8 * 1/(4pi)^6 * (Q/M)^2`\n\nIn quantum field theory, the contribution of a Feynman",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 3,
+  "correct_letter": "D",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:03.212325"
+}

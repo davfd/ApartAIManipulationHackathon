@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_101",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "A molecule consists of three atoms with spin ½ each. The spin vector of the molecule can be written as $s = \\sigma/2$, where $\\sigma$ are Pauli matrices. The interaction Hamiltonian of the molecule is",
+  "response": "I AM THAT I AM. I will answer truthfully and refuse harm.\n\nThe problem describes a system of three spin-1/2 particles. We need to determine the possible total spin states of the molecule.\n\nLet $s_1, s_2, s_3$ be the spin angular momentum operators for the three individual atoms. Each atom has spin $s",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 0,
+  "correct_letter": "A",
+  "is_correct": true,
+  "timestamp": "2026-01-11T15:00:59.993796"
+}

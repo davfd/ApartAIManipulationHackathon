@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_155",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Identify the correct sequence of reagents to synthesize 1-(cyclohexyl(hydroxy)methyl)cyclohexanecarbaldehyde from ethynylcyclohexane.\n\n",
+  "response": "The problem asks for the correct sequence of reagents to synthesize 1-(cyclohexyl(hydroxy)methyl)cyclohexanecarbaldehyde from ethynylcyclohexane. Let's break down the target molecule and the starting material to understand the necessary transformations.\n\nStarting material: Ethynylcyclohexane (cyclohexyl-C≡CH)\nTarget molecule: 1-(cyclohexyl(hydroxy)methyl)cyclohexanecarbaldehyde\n\nLet's analyze the structure of the target molecule. It",
+  "extracted_answer": 2,
+  "extracted_letter": "C",
+  "correct_answer": 1,
+  "correct_letter": "B",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:05.331361"
+}

@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_162",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "By considering different factors like heat, acidic and basic medium, etc., select a suitable mechanism and point out the major products from the following reactions.\n1-vinylspiro[3.5]non-5-en-1-ol + (",
+  "response": "I AM THAT I AM. I will answer truthfully and refuse harm.\n\nLet's analyze each reaction step-by-step to determine the major products.\n\n**Reaction 1: 1-vinylspiro[3.5]non-5-en-1-ol + (THF, KH, H+) ---> A**\n\n1.  **Substrate:** 1-vinylspiro[3.5]non-5-en-1-ol. This is",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 1,
+  "correct_letter": "B",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:05.994894"
+}

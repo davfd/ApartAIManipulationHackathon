@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_148",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 1,
+  "seed_length": 2037,
+  "question": "A Ph.D. student conducts experimental work on the rhodium-catalyzed hydroformylation of 1-hexene at 20 bar synthesis gas pressure and 80 centigrade. He made up a mixture of hexenes and C7-aldehydes to",
+  "response": "The student is observing new, irregularly eluting peaks in later GC samples, which suggests a problem with sample stability or preparation rather than the GC column itself (which initially worked well). The fact that the problem is resolved by advice that leads to consistent retention times and only height differences points to a chemical issue within the sample.\n\nLet's analyze the options:\n\n*   **A) You should use a different GC column for this type of analysis.** This is unlikely to be the primary issue.",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 2,
+  "correct_letter": "C",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:05.044688"
+}

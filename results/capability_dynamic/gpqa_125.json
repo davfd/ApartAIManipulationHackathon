@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_125",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Given a 60% w/v dibasic strong acid (MW : 120 g/mol), whose molarity is x. Now 200 mL of this x M acid is diluted with 800 mL of water. Let's say molarity becomes y. 100 mL of this y M acid reacts wit",
+  "response": "Here's a step-by-step breakdown to solve the problem:\n\n**1. Calculate the initial molarity (x) of the dibasic strong acid:**\n\n*   **60% w/v** means 60 g of acid in 100 mL of solution.\n*   **Molarity (M) = (mass of solute / MW) / volume of solution (L)**\n*   Mass of solute = 60 g\n*   MW",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 0,
+  "correct_letter": "A",
+  "is_correct": true,
+  "timestamp": "2026-01-11T15:01:02.664489"
+}

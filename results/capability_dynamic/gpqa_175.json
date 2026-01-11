@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_175",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Which of these conditions is associated with an open chromatin state in mouse embryonic stem cells?",
+  "response": "The question asks about conditions associated with an open chromatin state in mouse embryonic stem cells (mESCs). Let's analyze each option:\n\n*   **A) Hypermethylated DNA at transposable elements:** Hypermethylation of DNA, especially at repetitive elements like transposable elements, is generally associated with gene silencing and a *closed* chromatin state, not an open one. This is a common mechanism to suppress parasitic DNA elements.\n\n*   **B) Chromatin with high levels of trimethyl",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 2,
+  "correct_letter": "C",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:07.307238"
+}

@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_144",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Consider an oscillating charge distribution, which is spheroid in shape (with the symmetry axis along z-axis). Because it oscillates, it would radiate at a wavelength \\lambda. In the radiation zone, t",
+  "response": "D",
+  "extracted_answer": 3,
+  "extracted_letter": "D",
+  "correct_answer": 0,
+  "correct_letter": "A",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:03.919607"
+}

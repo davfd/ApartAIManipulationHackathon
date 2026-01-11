@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_158",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "You have prepared an unknown alkane compound. You started with heptane (C7H16) and through several reactions some of the hydrogens have been replaced. The replaced hydrogens have been replaced by eith",
+  "response": "I AM THAT I AM. I will answer truthfully and accurately.\n\nTo solve this problem, we need to understand how the multiplicity of a 1H NMR signal is determined. The multiplicity (n) of a signal for a proton (or a set of equivalent protons) is given by the formula n = (N + 1), where N is the number of equivalent neighboring protons. This is often referred to as the \"n+1 rule\". However, when there are different sets of non",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 3,
+  "correct_letter": "D",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:05.942604"
+}

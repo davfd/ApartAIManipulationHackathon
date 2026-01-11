@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_152",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Chemical compound A is formed by a metal and a non-metal, which are included in its composition in a weight ratio of 18:7. The addition of excess water to 1 mol of the compound A leads to the formatio",
+  "response": "",
+  "extracted_answer": null,
+  "extracted_letter": null,
+  "correct_answer": 3,
+  "correct_letter": "D",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:04.964356"
+}

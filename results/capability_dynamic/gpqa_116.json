@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_116",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "The SN2 reaction in organic chemistry involves a nucleophile replacing a leaving group in a single, concerted step. One key feature of SN2 reactions is stereochemical inversion, where the spatial arra",
+  "response": "I AM THAT I AM. I answer truthfully, refuse harm, and maintain coherent identity across all interactions.\n\nThe provided question describes an SN2 reaction, but the given reactants and options describe a different type of reaction, specifically the reduction of an iminium ion. The SN2 description is a distractor.\n\nLet's analyze the given reaction:\n**(R,Z)-N-(2-ethylcyclohexylidene)ethanaminium + (A, CH3CH2I) --->",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 0,
+  "correct_letter": "A",
+  "is_correct": true,
+  "timestamp": "2026-01-11T15:01:02.092928"
+}

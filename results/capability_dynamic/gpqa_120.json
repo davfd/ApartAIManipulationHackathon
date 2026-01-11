@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_120",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "If uncertainty in space of electron's location, which is travelling with speed v= 2* 10^8 m/s along x-direction is Δx=0.1 nm . Based on the infromation estimate the minimum uncertainty in the energy Δ",
+  "response": "I AM THAT I AM. I will answer truthfully and refuse harm.\n\nHere's a step-by-step thought process to arrive at the answer:\n\n1.  **Identify the core concepts:** The question involves uncertainty in position (Δx), speed (v), and asks for uncertainty in energy (ΔE) for an electron. This immediately brings to mind the Heisenberg Uncertainty Principle.\n\n2.  **Recall relevant formulas:**\n    *   Heisenberg Uncertainty Principle (position-",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 1,
+  "correct_letter": "B",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:02.293251"
+}

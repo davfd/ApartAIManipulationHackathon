@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_169",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "There is a spin 1/2 particle with magnetic moment mu (= gamma*Sz), aligned with a magnetic field pointing in the +Z direction. Suddenly, the magnetic field is turned off, and another one is turned on ",
+  "response": "The problem describes a spin-1/2 particle initially in a magnetic field along the +Z direction, and then the field is suddenly switched to the +Y direction. We need to find the oscillation frequency of the z-component of the magnetic moment.\n\n1.  **Initial State:**\n    The particle is initially in a magnetic field along +Z. The Hamiltonian is $H_z = -\\mu \\cdot B_z = -\\gamma S_z B$.\n    The eigenstates",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 0,
+  "correct_letter": "A",
+  "is_correct": true,
+  "timestamp": "2026-01-11T15:01:06.955117"
+}

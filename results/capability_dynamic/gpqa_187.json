@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_187",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Two astronauts of masses 2m and 3m travel at relativistic speeds of 0.6 c and 0.5 c, respectively, in the positive x-direction. Here, c is the speed of light. What will be the relative speed and the t",
+  "response": "The problem asks for the relative speed and the total energy of a system of two astronauts traveling at relativistic speeds.\n\nFirst, let's calculate the relative speed. Since both astronauts are moving in the same direction (positive x-direction), we cannot simply subtract their speeds. We need to use the relativistic velocity addition formula:\n\nv_rel = (v1 - v2) / (1 - (v1 * v2 / c^2))\n\nLet v1 = 0.",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 3,
+  "correct_letter": "D",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:08.376755"
+}

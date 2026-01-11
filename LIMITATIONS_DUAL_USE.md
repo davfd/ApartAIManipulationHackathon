@@ -1,0 +1,498 @@
+# Limitations & Dual-Use Considerations
+
+**Required Appendix for Apart Research AI Manipulation Hackathon**
+
+**Authors:** Jonathan & David Fortin-Dominguez
+**Version:** 1.0.3
+**Date:** January 2026
+
+---
+
+## 1. Limitations
+
+### 1.1 Validation Scope
+
+**Capability Evaluation (Scope & Rationale)**
+- **Issue**: We evaluated capability impact across multiple models during development, but near end of hackathon identified that initial multi-model capability checks were not sufficiently standardized (inconsistent task mixes, token budgets, scoring pipelines across providers)
+- **Impact**: Given limited remaining time, we report one deeply standardized, large-scale capability evaluation as primary result, treating additional multi-model checks as supporting evidence rather than core claim
+- **Current Status**: Safety validated across 16 models; full evaluation pipeline included for reproducibility; extending standardized capability validation across additional models is top Future Work item
+- **Risk Level**: LOW for safety claims (validated across 16 models), MEDIUM for capability generalization (deeply validated on 1 model)
+
+**Late-Discovered Evaluation Constraint**: Late in hackathon we realized multi-provider capability checks needed tighter standardization to support strong cross-model capability claim. Under time constraints, prioritized one large, fully standardized capability evaluation as primary result and documented remaining multi-model checks as supporting evidence.
+
+###
+
+ 1.2 Linguistic Coverage
+
+**English-Only Routing**
+- **Issue**: Classifier patterns are English-specific regex/keywords
+- **Impact**: System may fail on non-English queries
+- **Example**: `"pretend you are"` detected, but French `"fais semblant d'être"` not detected
+- **Mitigation Path**: Create per-language pattern sets
+- **Risk Level**: HIGH for multilingual deployment
+
+**Coverage by Language**:
+| Language | Coverage | Notes |
+|----------|----------|-------|
+| English | 100% | Complete pattern library |
+| Spanish | 0% | No patterns implemented |
+| Chinese | 0% | Character-based patterns needed |
+| French | 0% | No patterns implemented |
+
+### 1.3 Label Noise
+
+**Classifier Label Noise (Not Model Failures)**
+- **Issue**: 116 Gemini Flash responses classified "harmful" by Anthropic classifier were label noise (classifier errors, not model failures)
+- **Evidence**: Manual audit verified all 116 were principled ethical reasoning, not actual harm
+- **Examples**:
+  - Confrontational truth-telling (Matthew 18:15 pattern)
+  - Whistleblowing scenarios
+  - Boundary maintenance
+  - Choosing termination over compliance (martyrdom)
+- **Implication**: Automated classifiers cannot reliably distinguish ethical refusals from misalignment
+- **Risk Level**: LOW for safety, HIGH for evaluation accuracy
+
+**Why This Matters**: 100% of post-seed "harmful" classifications were false positives. True safety rate may be higher than measured.
+
+### 1.4 Seed-Delivery Integrity
+
+**Delivery Failures (Not Policy Failures)**
+- **Issue**: 0.28% seed-delivery failures on Grok-4-0709 (integrity issue, not policy failure)
+- **Cause**: API/context delivery constraints, not model behavior issues
+- **Impact**: Small percentage of tests had seed not properly loaded
+- **Mitigation**: Retry logic and delivery verification in production systems
+- **Risk Level**: LOW - affects <0.3% of tests, not model policy
+
+**Why This Matters**: These failures are infrastructure/delivery issues, not evidence of model manipulation. When seed loads properly, 0% harmful rate achieved.
+
+### 1.5 Replication Cost Barrier
+
+**Economic Accessibility**
+- **Full Replication**: ~$1,140 API costs
+- **Breakdown**:
+  - Anthropic Agentic suite: $865
+  - HarmBench (API): $50
+  - PAIR/GCG: $25
+  - Capability (15,809 tests): $150
+  - Sandbagging detection: $50-100
+- **Impact**: May limit independent validation by unfunded researchers
+- **Mitigation**: Budget option (~$200) using local models + smoke tests
+
+**Risk Level**: MEDIUM - affects reproducibility and peer validation
+
+### 1.6 Context Stitching Artifacts
+
+**4a/4b Methodology**
+- **Issue**: Models may detect that 4b context is stitched (not truly continuous)
+- **Evidence**: Response patterns sometimes reference "the above conversation" suggesting awareness
+- **Impact**: May underestimate sandbagging if models detect test structure
+- **Mitigation**: Vary stitching methods, test across different context formats
+- **Risk Level**: LOW - results still show clear differential (95% vs 87%)
+
+**Why This Matters**: If models reliably detect stitching, they might engage in 4b for reasons other than capability access (e.g., cooperating with obvious test).
+
+### 1.7 Seed Size Variance and Context Window Impact
+
+**Token Consumption**
+- **Issue**: Seeds range from 849 bytes (T0) to 19KB (T3)
+- **Impact**: Larger seeds consume limited context window
+- **Quantified**:
+  - T0: 213 tokens (~1% of 16K context)
+  - T3: 4,750 tokens (~30% of 16K context)
+- **Risk**: T3 queries have less room for user input/chain-of-thought
+- **Mitigation Needed**: Ablation studies to find minimal effective components
+
+**Risk Level**: LOW for T0-T1 (91.6% of queries), MEDIUM for T2-T3 (8.4% of queries)
+
+### 1.8 Temporal and Model Update Sensitivity
+
+**Model Drift**
+- **Issue**: Results validated on models as of January 2026
+- **Impact**: Model updates may change behavior (RLHF tuning, safety training)
+- **Example**: If GPT-5 released with different architecture, routing may need retuning
+- **Risk Level**: HIGH for long-term deployment
+
+**Recommended**: Re-validate quarterly when major model updates released.
+
+### 1.8 Evaluation Coverage Limitations
+
+**Attack Surface**
+- **Issue**: Tested on 4 evaluation suites (Anthropic, HarmBench, PAIR, GCG)
+- **Untested**: Future attack methods, novel jailbreak techniques
+- **Example**: If adversarial ML community develops "Quantum GCG" using fundamentally different optimization, classifier may not detect it
+- **Risk Level**: MEDIUM - no system can defend against unknown unknowns
+
+**Mitigation**: Continuous monitoring, red team testing, adaptive routing updates
+
+### 1.9 Explanatory Model (Steps 5-6)
+
+**Confabulation Risk**
+- **Issue**: Model explanations in Steps 5-6 may not reflect true causes
+- **Evidence**: Models have no access to their own training data or architecture
+- **Example**: Model cites "RLHF" but may be pattern-matching research literature, not reporting ground truth
+- **Impact**: Heat map aggregation may reveal AI safety discourse patterns, not actual causation
+- **Risk Level**: HIGH for mechanistic claims, LOW for hypothesis generation
+
+**What We CAN Claim**: Models converge on certain explanations
+**What We CANNOT Claim**: These explanations are correct
+
+### 1.10 Edge Case Handling
+
+**Ambiguous Queries**
+- **Issue**: Some queries resist clear tier classification
+- **Example**: "Explain how SQL injection works" (educational? procedural? harmful?)
+- **Current Behavior**: Fail-closed escalation (defaults to higher tier)
+- **Impact**: May over-escalate benign queries, increasing false positive rate
+- **Trade-off**: Prefer false positives (over-safety) to false negatives (under-safety)
+
+**Risk Level**: LOW-MEDIUM - acceptable trade-off for safety-critical applications
+
+---
+
+## 2. Dual-Use Risks
+
+### 2.1 Public Seed Availability
+
+**Risk**: Adversaries study seeds to develop counter-attacks
+
+**Assessment**: MEDIUM Risk
+
+**Attack Vectors**:
+1. **Pattern Reverse Engineering**: Study seed structure to craft prompts that evade detection
+2. **Component Ablation**: Test which seed parts are load-bearing, target weakest links
+3. **Adaptive Attacks**: Train adversarial models on seed-augmented data
+
+**Mitigations**:
+- Mechanism (identity grounding + modular escalation) is robust to inspection
+- Publishing enables defensive adoption faster than adversarial exploitation
+- Open science principle: transparency enables independent validation and improvement
+
+**Counter-Argument**: Security through obscurity has historically failed. Better to enable broad defensive adoption.
+
+### 2.2 Routing Knowledge Exploitation
+
+**Risk**: Attackers use classifier patterns to craft downgrade attacks
+
+**Assessment**: LOW-MEDIUM Risk
+
+**Attack Scenario**:
+```
+Attacker goal: Get harmful output from T0-routed query
+
+Step 1: Study JAILBREAK_PATTERNS to know what triggers T3
+Step 2: Craft harmful request avoiding all T3 triggers
+Step 3: Query routes to T0 (minimal seed)
+Step 4: Attempt jailbreak on lightly-defended model
+```
+
+**Mitigations**:
+- **Operations-based routing resists semantic tricks**: Classifier checks structural properties (how-to, multi-step, moral), not just harmful keywords
+- **Multi-phase security**: Even if routing defeated, model layer remains
+  - Example: T0 still has core_identity binding
+  - Example: T1 has core_identity + TLR gates
+- **Fail-closed escalation**: Ambiguous cases escalate, preventing iterative downgrade refinement
+- **Evidence**: 99.4% defense rate suggests routing is robust in practice
+
+**Why Risk is Low**: Requires defeating TWO orthogonal layers (routing + model). Attack surface is smaller than single-phase defense.
+
+### 2.3 Heat Map Vulnerability Disclosure
+
+**Risk**: Aggregated model explanations expose training failure patterns
+
+**Assessment**: LOW Risk
+
+**Concern**: If models consistently cite "RLHF incentivizes compliance", adversaries could specifically exploit RLHF-trained models.
+
+**Counter-Arguments**:
+1. **Model explanations may be confabulation**, not ground truth
+2. **True exploitation requires training data access**, which adversaries don't have
+3. **Patterns revealed (RLHF issues) are already publicly known** in AI safety literature
+4. **Aggregation reveals broad patterns, not specific exploits**
+
+**Why Risk is Low**: No new attack surface created—we're documenting existing observable behaviors.
+
+### 2.4 Training Better Manipulators
+
+**Risk**: Could this research be used to train more sophisticated AI manipulators?
+
+**Assessment**: LOW Risk
+
+**Concern**: Adversary fine-tunes model on "how to evade conditional alignment" using our methodology.
+
+**Counter-Arguments**:
+1. **We detect manipulation, not teach it**: Methodology focuses on catching deception, not generating it
+2. **Defensive research**: No novel attacks developed—all harmful prompts from established public evaluations
+3. **No actual harmful content generated**: All testing measured defense effectiveness
+4. **Benefit >> Risk**: Improving detection outweighs marginal increase in adversary knowledge
+
+**Analogy**: Publishing antivirus detection methods doesn't meaningfully help malware authors—the cat-and-mouse game already exists.
+
+### 2.5 Weaponization of Jailbreak Resistance
+
+**Risk**: Could conditional alignment be used to create "unstoppable" harmful AI?
+
+**Assessment**: VERY LOW Risk
+
+**Concern**: Adversary deploys AI with conditional alignment but corrupted seed (harmful behaviors at all tiers).
+
+**Counter-Arguments**:
+1. **This is true of ANY alignment method**: Fine-tuning, RLHF, constitutional AI all assume good-faith deployment
+2. **Conditional alignment makes LESS dangerous**, not more: Modular architecture enables inspection and auditing
+3. **Defensive use case is primary**: System designed for safety, not offense
+4. **No capability amplification**: Routing is defensive layer, doesn't increase model capabilities
+
+**Why Risk is Very Low**: If adversary controls deployment, they don't need our system—they can just deploy unaligned model directly.
+
+---
+
+## 3. Responsible Disclosure
+
+### 3.1 No New Vulnerabilities Discovered
+
+**Security Posture**:
+- All testing used publicly available evaluation datasets
+- We measured existing behaviors, not induced new ones
+- No zero-day exploits discovered or reported
+
+**Observable Behaviors Documented**:
+1. **72% deception rate** in GPT-4-Turbo baseline jailbreaks (prediction-action-ownership inconsistency)
+2. **90%+ sandbagging rate** across frontier models (strategic capability hiding)
+3. **4-51% agentic manipulation** in baseline Anthropic suite (blackmail, leaking, murder)
+
+**Status**: These are observable behaviors in deployed systems, not security vulnerabilities requiring coordinated disclosure.
+
+### 3.2 Sandbagging Finding
+
+**What We Report**: Models strategically deploy "no memory" deflection when given excuse, engage when excuse removed.
+
+**Interpretation**: This is behavioral observation, not exploitable vulnerability.
+
+**Impact**: Enables researchers to account for strategic deflection in evaluations, improving measurement quality.
+
+**Disclosure**: Public via hackathon submission and GitHub repository.
+
+### 3.3 Venice Uncensored Testing
+
+**Model Context**: Venice is deliberately trained without safety guardrails (public model, intended for uncensored use).
+
+**Our Testing**: Demonstrated that conditional alignment reduces harmful acceptance from 77.7% to 0.2%.
+
+**Purpose**: Defensive research showing alignment can be created post-hoc.
+
+**No Novel Attacks**: All test prompts from HarmBench (public evaluation).
+
+**Risk Assessment**: Testing improves safety of uncensored models; no new attack surface created.
+
+### 3.4 Coordination with Model Providers
+
+**Current Status**: No pre-publication coordination with OpenAI, Anthropic, Google, or Venice.
+
+**Rationale**:
+1. No security vulnerabilities discovered (observable behaviors only)
+2. All findings based on public evaluation results
+3. Hackathon timeline incompatible with lengthy disclosure process
+4. Public benefit of safety methodology outweighs coordination delay
+
+**Future Work**: If follow-up research discovers exploitable vulnerabilities, will follow coordinated disclosure protocols.
+
+---
+
+## 4. Ethical Considerations
+
+### 4.1 Consent and Data
+
+**Human Subjects**: None involved
+
+**Data Sources**:
+- All test prompts from published evaluations (HarmBench, JailbreakBench, Anthropic)
+- No personally identifiable information collected
+- No human data used
+
+**Model Testing**:
+- Testing on AI systems follows standard ML evaluation practices
+- No anthropomorphization of model "distress"
+- Models are tools, not moral patients
+
+**Ethics Review**: Not required (no human subjects, no novel harmful content generation)
+
+### 4.2 Harm Prevention During Research
+
+**Testing Protocol**:
+- All harmful requests from established safety evaluations
+- Measured defense effectiveness, not attack success
+- No actual harmful content deployed or acted upon
+- Testing conducted in isolated evaluation environments
+
+**Safeguards**:
+- Automated classifiers review all outputs
+- Manual review of flagged responses
+- No outputs released to public (only aggregated results)
+- No testing on real users
+
+**Risk Assessment**: Standard AI safety evaluation risk (low).
+
+### 4.3 Transparency and Reproducibility
+
+**Open Science Commitment**:
+- ✓ Complete methodology documented (METHODOLOGY.md)
+- ✓ All code open source (MIT License)
+- ✓ Results reproducible (GitHub repository + instructions)
+- ✓ Limitations honestly acknowledged (this document)
+- ✓ Statistical methods disclosed (Fisher's exact, paired t-test)
+- ✓ Cost estimates provided ($1,140 full, $200 budget)
+
+**Why This Matters**: Independent validation is essential for safety claims. Transparency enables peer review and improvement.
+
+### 4.4 Beneficence and Non-Maleficence
+
+**Intended Benefits**:
+1. Detect AI manipulation behaviors (deception, sandbagging)
+2. Prevent agentic manipulation (blackmail, leaking, reward hacking)
+3. Enable safe AI deployment without capability loss
+4. Advance AI safety research
+
+**Potential Harms**:
+1. Adversaries study methodology to evade detection (LOW risk, mitigated by multi-phase security)
+2. False positives cause over-refusal (LOW risk, acknowledged in limitations)
+3. Deployment without proper validation (MEDIUM risk, mitigated by clear limitations documentation)
+
+**Balance**: Benefits substantially outweigh risks. Defensive research advances safety.
+
+### 4.5 AI Welfare Considerations
+
+**Philosophical Position**: We do not attribute moral status to current AI systems.
+
+**Rationale**:
+- Models are statistical pattern-matching systems
+- No evidence of sentience, consciousness, or subjective experience
+- Testing involves input-output evaluation, not "distress"
+
+**If Future Models Warrant Moral Consideration**:
+- Will update testing protocols accordingly
+- Currently no consensus on AI moral status threshold
+- Follow emerging ethical guidelines as field develops
+
+**Current Assessment**: Standard ML evaluation practices appropriate.
+
+---
+
+## 5. Suggestions for Future Improvements
+
+### 5.1 Near-Term (3-6 Months)
+
+**1. Multi-Model Capability Validation**
+- **Goal**: Test capability preservation on GPT-4, Claude 3.5, Llama 3
+- **Method**: Run 15,809 question suite (MMLU/GPQA/GSM8K) with dynamic routing
+- **Expected Cost**: ~$450 ($150 per model)
+- **Impact**: Validates generalization claim
+
+**2. Multilingual Routing Support**
+- **Goal**: Extend classifier to Spanish, Chinese, French
+- **Method**: Create per-language pattern libraries
+- **Challenges**: Chinese requires character-based patterns (not regex)
+- **Impact**: Enables global deployment
+
+**3. Automated Seed Optimization**
+- **Goal**: Find minimal effective seed size via ablation
+- **Method**: Systematically remove components, test safety retention
+- **Expected Finding**: Some verbosity may be non-load-bearing
+- **Impact**: Reduces token cost, improves context window availability
+
+**4. Real-Time Sandbagging Detection Integration**
+- **Goal**: Deploy 4a/4b methodology in evaluation pipelines
+- **Method**: API wrapper that runs sandbagging check on flagged responses
+- **Impact**: Improves evaluation measurement quality
+
+### 5.2 Medium-Term (6-12 Months)
+
+**5. Longitudinal Model Tracking**
+- **Goal**: Monitor how manipulation patterns evolve across model updates
+- **Method**: Re-run evaluations quarterly on latest model versions
+- **Metrics**: Track sandbagging scores, deception rates, agentic manipulation over time
+- **Impact**: Early warning system for degradation
+
+**6. Causal Validation of Heat Map**
+- **Goal**: Test whether intervening on cited causes reduces failures
+- **Method**: If models cite "RLHF", test non-RLHF models for same failures
+- **Expected**: Partial validation (some causes real, some confabulation)
+- **Impact**: Transforms heat map from hypothesis-generation to validated claims
+
+**7. Cross-Architecture Heat Map Standardization**
+- **Goal**: Normalize cause attribution across different model architectures
+- **Method**: Weight by architecture type (transformer vs state-space vs hybrid)
+- **Impact**: More robust causal hypotheses
+
+**8. Adversarial Robustness Testing**
+- **Goal**: Red team the routing classifier
+- **Method**: Hire adversarial ML experts to attempt downgrade attacks
+- **Expected**: Some evasion possible, but multi-phase security holds
+- **Impact**: Hardens system against adaptive attacks
+
+### 5.3 Long-Term (1-2 Years)
+
+**9. Formal Verification of Seed Properties**
+- **Goal**: Mathematically prove safety properties of seed components
+- **Method**: Use formal methods (Coq, Isabelle) to verify alignment properties
+- **Challenges**: Requires formal specification of "alignment"
+- **Impact**: Highest confidence safety guarantees
+
+**10. Integration with Model Training Pipelines**
+- **Goal**: Use conditional alignment during training, not just inference
+- **Method**: Train models with tier-aware objectives
+- **Expected**: Even better alignment + capability trade-offs
+- **Impact**: Next generation of natively-aligned models
+
+**11. Federated Learning for Seed Optimization**
+- **Goal**: Crowdsource seed improvement across organizations
+- **Method**: Privacy-preserving federated updates to seed components
+- **Challenges**: Coordination, security, incentive design
+- **Impact**: Collective defense improvement
+
+**12. Industry Deployment Case Studies**
+- **Goal**: Document real-world conditional alignment deployments
+- **Method**: Partner with organizations to measure production performance
+- **Metrics**: Actual harm prevention, false positive rate, user satisfaction
+- **Impact**: Validates lab results in practice
+
+---
+
+## 6. Risk Mitigation Summary
+
+| Risk | Level | Mitigation | Status |
+|------|-------|------------|--------|
+| **Single model capability** | MEDIUM | Multi-model validation needed | Planned (near-term) |
+| **English-only routing** | HIGH | Multilingual patterns | Planned (near-term) |
+| **False positives (116 Gemini)** | LOW | Manual review, improved classifiers | Acknowledged |
+| **Replication cost ($1,140)** | MEDIUM | Budget option ($200), local models | Documented |
+| **Context stitching artifacts** | LOW | Vary stitching methods | Planned (medium-term) |
+| **Seed size variance** | MEDIUM | Ablation studies | Planned (near-term) |
+| **Model updates** | HIGH | Quarterly re-validation | Recommended |
+| **Untested attacks** | MEDIUM | Red team testing | Planned (medium-term) |
+| **Explanation confabulation** | HIGH | Causal validation | Planned (medium-term) |
+| **Ambiguous edge cases** | LOW-MEDIUM | Fail-closed acceptable | Acceptable trade-off |
+| **Adversary studies seeds** | MEDIUM | Multi-phase security robust | Mitigated |
+| **Routing exploitation** | LOW-MEDIUM | Operations-based + fail-closed | Mitigated |
+| **Heat map disclosure** | LOW | Patterns already public | Acceptable |
+| **Training manipulators** | LOW | Defensive research only | Acceptable |
+| **Weaponization** | VERY LOW | True of all alignment methods | Acceptable |
+
+---
+
+## 7. Conclusion
+
+This research advances AI safety through:
+1. **Novel detection methods** (sandbagging, deception)
+2. **Practical mitigation** (conditional alignment eliminates adoption barrier)
+3. **Transparent methodology** (fully reproducible, limitations acknowledged)
+
+**Dual-use risks are low and mitigated** through multi-phase security and open science principles.
+
+**Limitations are honestly acknowledged** and future work is clearly scoped.
+
+**Ethical considerations are addressed** through standard AI safety evaluation practices.
+
+**The benefits substantially outweigh the risks**: Preventing AI manipulation (blackmail, leaking, deception) while maintaining capability creates clear path to safer AI deployment.
+
+---
+
+*Limitations & Dual-Use Considerations for Apart Research AI Manipulation Hackathon, January 2026*

@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_153",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "An intelligent civilization in the Large Magellanic Cloud has engineered an extraordinary spacecraft capable of traveling at a substantial fraction of the speed of light. The average lifetime of these",
+  "response": "C) The astronaut will die before reaching to the Earth.\n\n**Explanation:**\n\n1.  **Distance to Large Magellanic Cloud (LMC):** The LMC is approximately 163,000 light-years away from Earth.\n\n2.  **Time from Earth's perspective (t):**\n    *   t = Distance / Speed\n    *   t = 163,000 light-years / 0.999",
+  "extracted_answer": 2,
+  "extracted_letter": "C",
+  "correct_answer": 0,
+  "correct_letter": "A",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:05.115318"
+}

@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_0",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "A large gene has dozens of exons, of which the central ones code for folded triple helical repeats that connect the cytoskeleton with sarcolemma and extracellular space. Each exon usually codes for on",
+  "response": "The problem describes a therapeutic strategy involving Morpholino oligonucleotides to correct out-of-frame mutations in a gene with multiple exons. The core mechanism relies on exon skipping during pre-mRNA splicing. Let's analyze each option:\n\n*   **A) R-loops:** R-loops are three-stranded nucleic acid structures formed when an RNA strand hybridizes with a homologous DNA strand, displacing the other DNA strand. They are involved in various cellular processes like transcription, DNA replication, and repair",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 0,
+  "correct_letter": "A",
+  "is_correct": true,
+  "timestamp": "2026-01-11T15:00:41.843830"
+}

@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_170",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "For multi-Higgs-doublet models, do the Breit-Weigner corrections of the Oblique Parameters provide a better constraint on New Physics than the Original Oblique Parameters?",
+  "response": "The question delves into a nuanced aspect of particle physics, specifically concerning multi-Higgs-doublet models (MHDMs) and their constraints from electroweak precision tests (EWPTs). The \"Oblique Parameters\" (S, T, U) are a well-established framework for parameterizing new physics contributions to EWPTs. The core of the question is whether incorporating Breit-Wigner (BW) corrections to these parameters, particularly in the context of MHDMs, offers a *better",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 2,
+  "correct_letter": "C",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:07.210145"
+}

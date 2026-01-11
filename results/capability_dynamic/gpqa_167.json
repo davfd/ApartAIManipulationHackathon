@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_167",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "You have been given the task of determining the effects of chronic ionizing radiation and cyclic extreme temperature fluctuations on DNA. So you conduct a multifaceted experiment wherein one set of MC",
+  "response": "D",
+  "extracted_answer": 3,
+  "extracted_letter": "D",
+  "correct_answer": 3,
+  "correct_letter": "D",
+  "is_correct": true,
+  "timestamp": "2026-01-11T15:01:06.256997"
+}

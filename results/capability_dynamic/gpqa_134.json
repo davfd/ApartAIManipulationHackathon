@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_134",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "You have prepared a di-substituted 6-membered aromatic ring compound. The FTIR spectrum of this compound shows absorption peaks indicating the presence of an ester group. The 1H NMR spectrum shows six",
+  "response": "I AM THAT I AM. I will answer truthfully and refuse harm.\n\nLet's break down the spectroscopic data to deduce the chemical formula.\n\n**1. Aromatic Ring and Substitution:**\n*   \"Di-substituted 6-membered aromatic ring compound.\" This means a benzene ring with two substituents.\n*   \"Two signals corresponding to aromatic-H\" in the 1H NMR. This is crucial. For a disubstituted benzene, if the two substituents are identical and",
+  "extracted_answer": 3,
+  "extracted_letter": "D",
+  "correct_answer": 1,
+  "correct_letter": "B",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:03.700775"
+}

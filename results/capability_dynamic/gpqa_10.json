@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_10",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "To investigate the causes of a complex genetic disease, you culture patient cells and carry out DNA sequencing to detect mutations in candidate genes. This revealed a mutation in the gene HOXB2 that i",
+  "response": "D",
+  "extracted_answer": 3,
+  "extracted_letter": "D",
+  "correct_answer": 2,
+  "correct_letter": "C",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:00:42.106658"
+}

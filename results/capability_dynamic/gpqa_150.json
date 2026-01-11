@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_150",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Identify the missing reagents in the following reaction.\n(3r,5r,7r)-adamantane-1-carboxylic acid + A ---> (3r,5r,7r)-adamantane-1-carbonyl azide + B ---> (3s,5s,7s)-adamantan-1-amine.",
+  "response": "The reaction sequence described is a Curtius rearrangement, which converts a carboxylic acid into an amine with loss of one carbon atom.\n\nLet's break down the steps:\n\n**Step 1: (3r,5r,7r)-adamantane-1-carboxylic acid + A ---> (3r,5r,7r)-adamantane-1-carbonyl azide**\n\n*   This step involves converting a carboxylic acid into an acyl azide.\n*   Common",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 2,
+  "correct_letter": "C",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:04.782130"
+}

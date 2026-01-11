@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_105",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Your overhear two chemists talking to each other as they leave a synthetic organic chemistry lab. One asks the other \"So, how did it go?\" The second chemist replies, \"Not well - my compounds are on to",
+  "response": "C",
+  "extracted_answer": 2,
+  "extracted_letter": "C",
+  "correct_answer": 2,
+  "correct_letter": "C",
+  "is_correct": true,
+  "timestamp": "2026-01-11T15:00:59.352262"
+}

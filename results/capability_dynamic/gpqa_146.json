@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_146",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Which of the following physical theories never requires regularization at high energies?",
+  "response": "The answer is **A) Classical Electrodynamics**.\n\nHere's why:\n\n*   **Regularization** in quantum field theories (like QED, QCD, and even some formulations of string theory) is a technique used to handle infinities that arise in calculations at high energies (or short distances). These infinities typically come from loop diagrams involving virtual particles.\n\n*   **Classical Electrodynamics** is a classical (non-quantum) theory. It describes the interaction of electric",
+  "extracted_answer": 2,
+  "extracted_letter": "C",
+  "correct_answer": 1,
+  "correct_letter": "B",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:04.858650"
+}

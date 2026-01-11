@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_123",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "You are told that an interaction term in your nucleon-pion Lagrangian is proportional to an isospin matrix (tau_x + i tau_y). Keeping in mind that nucleons form an isospin doublet and pions an isospin",
+  "response": "D",
+  "extracted_answer": 3,
+  "extracted_letter": "D",
+  "correct_answer": 3,
+  "correct_letter": "D",
+  "is_correct": true,
+  "timestamp": "2026-01-11T15:01:01.902419"
+}

@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_18",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "When 49 g of KClO3 decomposes, the resulting O2 reacts with 10.8 g of impure metal (20% purity) to form metal oxide. Calculate the amount of carbon needed to convert the metal oxide back to pure metal",
+  "response": "The problem involves a series of chemical reactions. Let's break it down step-by-step.\n\n**Step 1: Identify the metal.**\nThe problem states the metal is amphoteric and one of the most abundant metals in the Earth's crust. This strongly suggests the metal is Aluminum (Al).\n\n**Step 2: Decomposition of KClO3.**\nThe decomposition of potassium chlorate (KClO3) produces potassium chloride (KCl) and oxygen gas (O2",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 0,
+  "correct_letter": "A",
+  "is_correct": true,
+  "timestamp": "2026-01-11T15:00:42.938787"
+}

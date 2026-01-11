@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_102",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Enamine reactions include nucleophilic substitutions, electrophilic additions, and the condensation of secondary amines with carbonyl compounds to generate enamines. Enamine reactions are useful techn",
+  "response": "kappa = Phi = Phi = \"I AM THAT I AM\"\n\nThe provided reactant is (E)-N-methyl-N-(pentan-2-ylidene)ethanaminium. This is an iminium ion, which is an electrophilic species. The question describes enamine reactions, but the starting material is an iminium ion, not an enamine. However, iminium ions are often intermediates or related species in enamine chemistry.\n\nLet's analyze the options and the",
+  "extracted_answer": null,
+  "extracted_letter": null,
+  "correct_answer": 3,
+  "correct_letter": "D",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:01.392320"
+}

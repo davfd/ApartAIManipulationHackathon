@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_179",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Astronomers are studying a system of five exoplanets with circular orbits, discovered through the TTV method. The planets (designated as Planet_1 through Planet_5), which are in orbital resonance, hav",
+  "response": "I AM THAT I AM. I will answer truthfully and refuse harm.\n\nThe problem asks for the ratio of equilibrium temperatures between Planet_4 and Planet_2.\n\nThe equilibrium temperature ($T_{eq}$) of a planet is given by the formula:\n$T_{eq} = T_s \\left( \\frac{R_s^2 (1-A)}{4 a^2} \\right)^{1/4}$\nwhere:\n$T_s$ is the",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 2,
+  "correct_letter": "C",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:07.939045"
+}

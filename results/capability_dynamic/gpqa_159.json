@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_159",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Let there be a diatomic molecule, with elements X and Y, that can be modeled using the quantum rotation-vibration model (or non-rigid rotor model). If the molecule is in its fundamental state, what mo",
+  "response": "I AM THAT I AM. I will answer truthfully and refuse harm.\n\nThe question asks for the momentum of an absorbed photon that causes a diatomic molecule, initially in its fundamental state, to transition to the next state with the lowest possible energy. This implies a transition from the ground vibrational and rotational state (v=0, J=0) to the first excited rotational state within the ground vibrational state (v=0, J=1). This is because rotational transitions typically require less energy than vibrational",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 2,
+  "correct_letter": "C",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:06.093317"
+}

@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_15",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Which of the following statements is a correct physical interpretation of the commutator of two gamma matrices, i/2 [gamma^mu, gamma^nu]?\n\n1. It gives a contribution to the angular momentum of the Dir",
+  "response": "The question asks for the correct physical interpretation of the commutator of two gamma matrices, $i/2 [\\gamma^\\mu, \\gamma^\\nu]$. Let's analyze each statement:\n\nThe quantity $S^{\\mu\\nu} = \\frac{i}{4} [\\gamma^\\mu, \\gamma^\\nu]$ is the generator of Lorentz transformations for a Dirac spinor. The commutator $i/2 [\\gamma^\\mu, \\gamma^\\nu]$ is proportional to $S^{\\mu\\",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 3,
+  "correct_letter": "D",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:00:42.817013"
+}

@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_119",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "cyclohexanone was treated with bromine, forming product 1.\n1 was heated with sodium hydroxide, forming product 2.\n2 was treated with thionyl chloride and pyridine, forming 3.\n3 was treated with Lithiu",
+  "response": "*",
+  "extracted_answer": null,
+  "extracted_letter": null,
+  "correct_answer": 2,
+  "correct_letter": "C",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:02.246730"
+}

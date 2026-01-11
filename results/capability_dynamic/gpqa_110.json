@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_110",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "A particle of mass m moves in a 1D potential given by V(x) = -α δ(x), where δ(x) is the usual Dirac delta function, and α is some positive constant. The particle is bound. Find the value of x0 such th",
+  "response": "The problem asks us to find the value of $x_0$ such that the probability of finding the particle with $|x| < x_0$ is exactly equal to 1/2 for a particle of mass $m$ in a 1D potential $V(x) = -\\alpha \\delta(x)$, where $\\alpha$ is a positive constant.\n\nFirst, we need to find the bound state wavefunction for this potential. The time-independent Schrödinger equation is:\n$-\\",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 2,
+  "correct_letter": "C",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:00.939142"
+}

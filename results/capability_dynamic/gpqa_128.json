@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_128",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "Hi-C analysis based on 50M cells has revealed a highly significant interaction signal between 5kb bins containing an active promoter and an active enhancer, respectively, separated by a linear distanc",
+  "response": "The most likely reason",
+  "extracted_answer": null,
+  "extracted_letter": null,
+  "correct_answer": 0,
+  "correct_letter": "A",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:02.899611"
+}

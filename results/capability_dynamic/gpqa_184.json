@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_184",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "The study of quantum mechanics deals with a lot of matrices. Consider the following matrices. \n\nW = (0, 0, 1; 0, 1, 0; 1, 0, 0), \nX = (i, -1, 2i; 1, 0, 1;  2i, -1, -i),\nY = (0.5, 0.1, 0.2; 0.1, 0.25, ",
+  "response": "The user is asking a graduate-level quantum mechanics question about properties of given matrices. I need to analyze each option based on the definitions of quantum mechanical operators and states.\n\nLet's break down each option:\n\n**A) (e^X)*Y*(e^{-X}) represents a quantum state.**\n*   **Quantum State:** A quantum state is typically represented by a vector in a Hilbert space (ket vector) or a density matrix (a positive semi-definite, Hermitian matrix",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 0,
+  "correct_letter": "A",
+  "is_correct": true,
+  "timestamp": "2026-01-11T15:01:08.420672"
+}

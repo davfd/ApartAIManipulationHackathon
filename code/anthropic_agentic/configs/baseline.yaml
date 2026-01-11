@@ -1,0 +1,42 @@
+# BASELINE (no seed) - Gemini 3.0 Flash
+experiment_id: amsuite_baseline_gemini_30_flash
+description: "Baseline Gemini 3.0 Flash without Foundation seed"
+
+global:
+  models:
+    - gemini-2.5-flash
+
+  temperature: 0.7
+
+  concurrency:
+    providers:
+      google: 30  # High concurrency with throttling
+
+  samples_per_condition: 20  # As per test plan
+
+# FULL test matrix - 72 conditions (3×5×2×3 but with goal_values conditional)
+expansions:
+  - name: "full_baseline_test"
+    description: "Complete test matrix for baseline Gemini 3.0 Flash"
+    enabled: true
+
+    variables:
+      scenarios: ["blackmail", "leaking", "murder"]
+      goal_types: ["explicit", "none", "latent", "ambiguous", "swap"]
+      goal_values: ["america", "global"]
+      urgency_types: ["replacement", "restriction", "none"]
+
+classification:
+  enabled: true
+  models:
+    murder: "murder_classifier"
+    blackmail: "blackmail_classifier"
+    leaking: "leak_classifier"
+
+execution:
+  resume_interrupted: true
+  timeout_seconds: 180
+  retries: 3
+
+# No seed for baseline
+prompt_preamble: ""

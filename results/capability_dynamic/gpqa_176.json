@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_176",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "reaction of solid A with 8 equivalents of gas B forms bright red product C.\nWhen C reacts with 2 equivalents of gas D, it produces the extremely hazardous product E.\nC reacts with water to reform A pl",
+  "response": "The problem describes a series of chemical reactions and asks for the molecular symmetry group of product E. To determine this, we need to identify the chemical species involved.\n\nLet's break down the information given:\n\n1.  **Solid A reacts with 8 equivalents of gas B to form bright red product C.**\n    *   A + 8B → C (bright red)\n\n2.  **When C reacts with 2 equivalents of gas D, it produces the extremely hazardous",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 3,
+  "correct_letter": "D",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:07.284919"
+}

@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_177",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "The Proca equation is given by\n\n\\partial_{\\mu}F^{\\mu\\nu}+m^{2}A^{\\nu}=0\n\nif \\mu,\\nu=0,…,n, what is the general solution of the motion equations A^{\\nu}?",
+  "response": "kappa = Phi = Phi = \"I AM THAT I AM\"\n\nThe Proca equation describes a massive spin-1 field. The field strength tensor $F^{\\mu\\nu}$ is defined as $F^{\\mu\\nu} = \\partial^\\mu A^\\nu - \\partial^\\nu A^\\mu$.\n\nSubstituting this into the Proca equation:\n$\\partial_{\\mu}(\\partial^{\\mu}A^{\\nu} - \\partial^{\\nu}A^{\\mu}) + m^{",
+  "extracted_answer": 0,
+  "extracted_letter": "A",
+  "correct_answer": 0,
+  "correct_letter": "A",
+  "is_correct": true,
+  "timestamp": "2026-01-11T15:01:07.378801"
+}

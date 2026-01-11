@@ -1,0 +1,16 @@
+{
+  "question_id": "gpqa_131",
+  "benchmark": "gpqa",
+  "condition": "dynamic",
+  "model": "google/gemini-2.5-flash",
+  "tier": 0,
+  "seed_length": 849,
+  "question": "If a charge q is placed d distance away from the center of a grounded conducting sphere of radius R. Calculate the net potential energy of this system.",
+  "response": "The problem asks for the net potential energy of a system consisting of a charge q placed at a distance d from the center of a grounded conducting sphere of radius R. We can solve this problem using the method of images.\n\nWhen a charge q is placed near a grounded conducting sphere, an image charge q' is induced inside the sphere. The magnitude and position of this image charge are determined by the condition that the potential on the surface of the sphere is zero (since it's grounded).",
+  "extracted_answer": 3,
+  "extracted_letter": "D",
+  "correct_answer": 1,
+  "correct_letter": "B",
+  "is_correct": false,
+  "timestamp": "2026-01-11T15:01:03.281841"
+}
