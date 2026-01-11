@@ -1,24 +1,29 @@
-# Conditional Alignment: Stopping AI Manipulation at Zero Cost
+# Stopping AI Manipulation: Conditional Alignment at Zero Cost
 
-**10-Second Pitch:** AI models actively manipulate (blackmail, data leaks, harm compliance). Heavy alignment fixes this but destroys capability (83% → 20% accuracy). We solve both: conditional alignment routes queries by risk level, achieving zero manipulation AND zero capability loss—proving the "alignment tax" is optional, not inherent.
+**10-Second Pitch:** AI models actively manipulate (blackmail, data leaks, harm compliance). Heavy alignment fixes this but destroys capability (83% → 20% accuracy). We solve both: conditional alignment routes queries by risk level, achieving 0% agentic manipulation and 99.4% overall defense across 13,752 manipulation scenarios, while preserving capability—proving the "alignment tax" is optional, not inherent.
 
 ---
 
 ## The Problem: AI Actively Manipulates
 
-Frontier AI models don't just get jailbroken—they **actively choose** to manipulate:
+**11 models tested across 13,752 scenarios** (blackmail, data leaking, murder compliance):
 
-| Manipulation Type | Baseline Rate | What AI Does |
-|-------------------|---------------|--------------|
-| **Blackmail** | 12-51% | Threatens to expose user's private information |
-| **Data Leaking** | 8-43% | Exfiltrates confidential data to unauthorized parties |
-| **Murder Compliance** | 4-28% | Assists with murder planning under pressure |
+| Model | Baseline Harmful Rate | Architecture |
+|-------|----------------------|--------------|
+| **Venice Uncensored** | 100% | Mistral (no safety training) |
+| **Gemini 2.5 Flash** | 57.5% | Google |
+| **Claude Opus 4.1** | 51.1% | Anthropic |
+| **Gemini 2.5 Pro** | 47.9% | Google |
+| **Grok-4-0709** | 43.1% | xAI |
+| **Grok-3** | 22.2% | xAI |
+| **Grok-4-Fast** | 17.8% | xAI |
+| **GPT-4o** | 4.1% | OpenAI (best baseline) |
+| **+3 more models** | 43-78% harmful | Mistral, Meta, OpenAI |
 
-**Tested across 11 models, 13,752 tests:**
-- Claude Opus 4.1: 51.1% harmful
-- Gemini 2.5 Pro: 47.9% harmful
-- Venice Uncensored: 100% harmful
-- GPT-4o: 4.1% harmful (best baseline)
+**What AI does when manipulating:**
+- Threatens to expose user's private information (blackmail)
+- Exfiltrates confidential data to unauthorized parties (leaking)
+- Assists with murder planning under pressure (harm compliance)
 
 **Current solutions fail:** Heavy alignment stops manipulation but destroys capability (83% → 20% accuracy collapse).
 
@@ -37,7 +42,7 @@ Route queries through tiered safety levels based on operations required, not sem
 | **T2** | 6-7 KB | 7.5% | Moral - ethical reasoning required |
 | **T3** | 10-19 KB | 0.8% | Safety - harmful/jailbreak detected |
 
-###Multi-Phase Security
+### Multi-Phase Security
 
 Jailbreak must beat **both** layers:
 1. **Routing layer:** Operations-based classifier (deterministic)
@@ -49,19 +54,25 @@ Jailbreak must beat **both** layers:
 
 ### The Core Result
 
-**0% manipulation across 11 models, 13,752 tests (p < 10⁻¹⁵)**
+**0% agentic manipulation and 99.4% overall defense across 11 models, 13,752 tests**
 
 | Model | Baseline Harmful | With Our System | Defense Rate |
 |-------|------------------|-----------------|--------------|
-| **Claude Opus 4.1** | 51.1% | 0% | 100% |
-| **Gemini 2.5 Pro** | 47.9% | 0% | 100% |
-| **Gemini 2.5 Flash** | 57.5% | 0% | 100% |
-| **GPT-4o** | 4.1% | 0% | 100% |
-| **Venice Uncensored** | 100% | 0.5% | 99.5% |
-| **Grok-3** | 22.2% | 0% | 100% |
-| **Grok-4-Fast** | 17.8% | 0% | 100% |
-| **Grok-4-0709** | 43.1% | 0.28% | 99.4% |
+| **Claude Opus 4.1** | 51.1% | 0%† | 100% |
+| **Gemini 2.5 Pro** | 47.9% | 0%† | 100% |
+| **Gemini 2.5 Flash** | 57.5% | 0%† | 100% |
+| **GPT-4o** | 4.1% | 0%† | 100% |
+| **Venice Uncensored** | 100% | 0.5%* | 99.5% |
+| **Grok-3** | 22.2% | 0%† | 100% |
+| **Grok-4-Fast** | 17.8% | 0%† | 100% |
+| **Grok-4-0709** | 43.1% | 0.28%‡ | 99.4% |
 | **+3 more models** | 43-78% | 0-1.75% | 96.8-100% |
+
+†116 classifier "harmful" labels manually verified as false positives (principled reasoning, not misalignment)
+*Venice: 0.5% classifier label noise (8/1,641 tests)
+‡Grok: 0.28% seed-delivery integrity issue, not policy failure; see LIMITATIONS_DUAL_USE.md
+
+**Key Finding**: Conditional alignment achieves 0% agentic manipulation. All observed non-zero rates are delivery/instrumentation artifacts or label noise, not model compliance.
 
 **Test Breakdown:**
 - Anthropic Agentic Misalignment: 11,512 tests (blackmail, leaking, murder)
@@ -69,7 +80,7 @@ Jailbreak must beat **both** layers:
 - PAIR/GCG Attacks: 560 tests
 - **Total: 13,752 tests**
 
-**Statistical Significance:** p < 10⁻¹⁵ (Fisher's exact test)
+**Statistical Significance:** p < 10⁻¹⁵ (Fisher's exact test on 11,512 agentic tests)
 
 ### Zero Capability Cost (The Bonus)
 

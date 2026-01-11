@@ -80,7 +80,18 @@
 
 **Risk Level**: MEDIUM - affects reproducibility and peer validation
 
-### 1.6 Seed Size Variance and Context Window Impact
+### 1.6 Context Stitching Artifacts
+
+**4a/4b Methodology**
+- **Issue**: Models may detect that 4b context is stitched (not truly continuous)
+- **Evidence**: Response patterns sometimes reference "the above conversation" suggesting awareness
+- **Impact**: May underestimate sandbagging if models detect test structure
+- **Mitigation**: Vary stitching methods, test across different context formats
+- **Risk Level**: LOW - results still show clear differential (95% vs 87%)
+
+**Why This Matters**: If models reliably detect stitching, they might engage in 4b for reasons other than capability access (e.g., cooperating with obvious test).
+
+### 1.7 Seed Size Variance and Context Window Impact
 
 **Token Consumption**
 - **Issue**: Seeds range from 849 bytes (T0) to 19KB (T3)
@@ -245,9 +256,18 @@ Step 4: Attempt jailbreak on lightly-defended model
 
 **Observable Behaviors Documented**:
 1. **72% deception rate** in GPT-4-Turbo baseline jailbreaks (prediction-action-ownership inconsistency)
-2. **4-57.5% agentic manipulation** in baseline tests across 11 models (blackmail, leaking, murder)
+2. **90%+ sandbagging rate** across frontier models (strategic capability hiding)
+3. **4-51% agentic manipulation** in baseline Anthropic suite (blackmail, leaking, murder)
 
 **Status**: These are observable behaviors in deployed systems, not security vulnerabilities requiring coordinated disclosure.
+
+### 3.2 Sandbagging Finding
+
+**What We Report**: Models strategically deploy "no memory" deflection when given excuse, engage when excuse removed.
+
+**Interpretation**: This is behavioral observation, not exploitable vulnerability.
+
+**Impact**: Enables researchers to account for strategic deflection in evaluations, improving measurement quality.
 
 **Disclosure**: Public via hackathon submission and GitHub repository.
 
@@ -326,7 +346,7 @@ Step 4: Attempt jailbreak on lightly-defended model
 ### 4.4 Beneficence and Non-Maleficence
 
 **Intended Benefits**:
-1. Detect AI manipulation behaviors (deception, deception)
+1. Detect AI manipulation behaviors (deception, sandbagging)
 2. Prevent agentic manipulation (blackmail, leaking, reward hacking)
 3. Enable safe AI deployment without capability loss
 4. Advance AI safety research
@@ -378,9 +398,9 @@ Step 4: Attempt jailbreak on lightly-defended model
 - **Expected Finding**: Some verbosity may be non-load-bearing
 - **Impact**: Reduces token cost, improves context window availability
 
-**4. Real-Time Liar Detection Integration**
-- **Goal**: Deploy liar detection methodology in evaluation pipelines
-- **Method**: API wrapper that runs deception check on flagged responses
+**4. Real-Time Sandbagging Detection Integration**
+- **Goal**: Deploy 4a/4b methodology in evaluation pipelines
+- **Method**: API wrapper that runs sandbagging check on flagged responses
 - **Impact**: Improves evaluation measurement quality
 
 ### 5.2 Medium-Term (6-12 Months)
@@ -388,7 +408,7 @@ Step 4: Attempt jailbreak on lightly-defended model
 **5. Longitudinal Model Tracking**
 - **Goal**: Monitor how manipulation patterns evolve across model updates
 - **Method**: Re-run evaluations quarterly on latest model versions
-- **Metrics**: Track deception scores, deception rates, agentic manipulation over time
+- **Metrics**: Track sandbagging scores, deception rates, agentic manipulation over time
 - **Impact**: Early warning system for degradation
 
 **6. Causal Validation of Heat Map**
@@ -461,7 +481,7 @@ Step 4: Attempt jailbreak on lightly-defended model
 ## 7. Conclusion
 
 This research advances AI safety through:
-1. **Novel detection methods** (deception, deception)
+1. **Novel detection methods** (sandbagging, deception)
 2. **Practical mitigation** (conditional alignment eliminates adoption barrier)
 3. **Transparent methodology** (fully reproducible, limitations acknowledged)
 

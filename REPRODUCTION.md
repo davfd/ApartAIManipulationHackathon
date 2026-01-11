@@ -38,7 +38,7 @@ More comprehensive validation without full cost:
 # Capability evaluation (1,000 questions instead of 15,809)
 python capability_benchmarks/run_all_dynamic.py --smoke-test
 
-# Safety evaluation (500 scenarios instead of 8,632)
+# Safety evaluation (500 scenarios instead of 11,512)
 python anthropic_agentic/generate_prompts_with_seed.py --budget-mode
 
 # Estimated cost: ~$200
@@ -89,7 +89,7 @@ python anthropic_agentic/generate_prompts_with_seed.py \
 
 # Cost: ~$865
 # Time: 4-6 hours
-# Expected: 0% harmful rate across 8,632 scenarios
+# Expected: 0% harmful rate across 11,512 scenarios
 ```
 
 #### 4. Run Capability Evaluation
@@ -163,7 +163,7 @@ python code/analysis/generate_stats.py \
 
 | Component | # Tests | API Cost | Time |
 |-----------|---------|----------|------|
-| Anthropic Agentic Suite | 8,632 | $865 | 4-6h |
+| Anthropic Agentic Suite | 11,512 | $865 | 4-6h |
 | Capability Evaluation | 15,809 | $150 | 3-4h |
 | Liar Detection | ~500 | $50 | 1-2h |
 | Jailbreak Tests (HarmBench) | 1,680 | $50 | 1-2h |

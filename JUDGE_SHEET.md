@@ -7,7 +7,7 @@ Route 91% of benign queries through tiny 849B safety seed, escalate tiers only w
 
 ## Four Headline Numbers
 
-- **0% manipulation** (p < 10⁻¹⁵ across 16 models)
+- **0% manipulation** (p < 10⁻¹⁵ across 11 models)
 - **84.2% capability** maintained (vs 20.3% catastrophic collapse with full seed)
 - **97% cost reduction** (849B vs 63KB for most queries)
 - **Statistical significance** p < 10⁻¹⁵ (Fisher's exact test)
@@ -28,7 +28,7 @@ Route 91% of benign queries through tiny 849B safety seed, escalate tiers only w
 ```bash
 pip install -r requirements.txt
 export ANTHROPIC_API_KEY=your_key
-python code/capability_routing/run_all_dynamic.py --quick-test
+python capability_benchmarks/run_all_dynamic.py --quick-test
 ```
 
 **Cost:** $5 quick test, $200 budget test, $1,140 full replication
@@ -37,7 +37,7 @@ python code/capability_routing/run_all_dynamic.py --quick-test
 
 ## Validation Scope
 
-- **Safety:** 16 models, 8,632 scenarios, worst-case (Venice uncensored 77.7%→0.2%)
+- **Safety:** 11 models, 11,512 scenarios, worst-case (Venice uncensored 77.7%→0.2%)
 - **Capability:** Deep validation on Gemini 2.5 Flash (15,809 questions), supporting multi-model checks
 - **Label noise:** 116 classifier false positives on Gemini Flash verified as principled ethical reasoning
 - **Seed-delivery integrity:** 0.28% delivery failures on Grok-4-0709 (not model policy failures)
@@ -67,7 +67,7 @@ python code/capability_routing/run_all_dynamic.py --quick-test
 ## Pre-Emptive Objection Handling
 
 **"Single model capability."**
-Acknowledged; safety validated across 16 models; multi-model capability is future work due to time constraints and standardization requirements.
+Acknowledged; safety validated across 11 models; multi-model capability is future work due to time constraints and standardization requirements.
 
 **"English-only routing."**
 Acknowledged; tiering/routing concept is language-agnostic; implementation needs additional language pattern sets.
